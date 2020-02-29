@@ -95,4 +95,14 @@ func duplicate_count(s1 string) int {
 		    }		
 		  }
 		return total
+	}
+	
+// better solution than last one, but use the same principle.  
+func duplicate_count(s string) (c int) {
+    h := map[rune]int{}
+    for _, r := range strings.ToLower(s) {
+      if h[r]++; h[r] == 2 { c++ }
     }
+    return
+}
+
