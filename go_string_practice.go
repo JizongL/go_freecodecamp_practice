@@ -61,3 +61,18 @@ func IsTriangle(a, b, c int) bool {
     return false
     }
 }
+
+
+// 4: mumbling
+
+func Accum(s string) string {
+    // your code
+   	var str string
+	for i:=0;i<len(s);i++{
+	str+=strings.ToUpper(string(s[i]))+strings.Repeat(strings.ToLower(string(s[i])),i)
+	if(i+1!=len(s)){
+		str+=string("-")
+	}
+	}
+    return str
+}
