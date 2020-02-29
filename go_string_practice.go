@@ -76,3 +76,23 @@ func Accum(s string) string {
 	}
     return str
 }
+
+// Remove first and last charactere
+func RemoveChar(word string) string {
+	return word[1:len(word)-1]
+  }
+
+// Counting Duplicates, given words, find number of distinct duplicated letters
+
+import("strings")
+func duplicate_count(s1 string) int {
+    var total int
+	  records:=map[string]int{}
+	  for i:=0;i<len(s1);i++{		
+		  records[strings.ToLower(string(s1[i]))] +=1		  
+		  if records[strings.ToLower(string(s1[i]))]==2{
+			  total+=1
+		    }		
+		  }
+		return total
+    }
