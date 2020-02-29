@@ -24,7 +24,7 @@ func DNAtoRNA2(dna string) string {
 	return res
 }
 
-// 2
+// 2 given m, find if n exists, 1^3...(n-1)^3+n^3
 func FindNb(m int) int {
 
 	n := float64(0)
@@ -39,4 +39,25 @@ func FindNb(m int) int {
 	} else {
 		return -1
 	}
+}
+
+func FindNb(m int) int{
+	for n:=1,m>0,n++{
+		m-= n*n*n
+		if m==0{
+			return n
+		}
+	}
+	return -1
+}
+
+
+// 3: given 3 sides, find if it can make a triangle
+
+func IsTriangle(a, b, c int) bool {
+  if a+b >c && b+c > a && c+a>b {
+    return true
+    }else{
+    return false
+    }
 }
