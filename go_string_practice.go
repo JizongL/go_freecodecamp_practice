@@ -106,3 +106,63 @@ func duplicate_count(s string) (c int) {
     return
 }
 
+// Given two strings, combine them and removed duplicate and return sorted
+// my first approach, turned it's too complicated
+import(
+
+	"fmt"
+	"strings"
+	"sort"
+	)
+
+type ByRune []rune
+
+func (r ByRune) Len() int           { return len(r) }
+func (r ByRune) Swap(i, j int)      { r[i], r[j] = r[j], r[i] }
+func (r ByRune) Less(i, j int) bool { return r[i] < r[j] }
+func StringToRuneSlice(s string) []rune {
+      var r []rune
+      for _, runeValue := range s {
+              r = append(r, runeValue)
+      }
+      return r
+}
+
+
+func TwoToOne(s1 string, s2 string) (str string) {
+    h := map[rune]int{}
+    for _, r := range strings.ToLower(s1) {
+      if h[r]++; h[r] == 1 { str+=string(r) }
+    }
+    for _, r := range strings.ToLower(s2) {
+      if h[r]++; h[r] == 1 { str+=string(r) }
+    }
+
+	var r ByRune = StringToRuneSlice(str)
+	sort.Sort(r)				
+    return string(r)
+}
+
+
+func main() {
+	a := "xyaabbbccccdefww"
+	b := "xxxxyyyyabklmopq"
+	//c:="abcdefghijklmnopqrstuvwxyz"
+	d:= duplicate_count(a,b)
+	fmt.Println(d)
+}
+
+
+// better solution 
+func TwoToOne(s1 string, s2 string)string{
+	chars := strings.Split(s1+s2,"")
+	sort.Strings(chars)
+	result:= ""
+	for _,s:= range chars{
+		chr:= string(s)
+		if !strings.Contains(result,chr){
+			result+=chr
+		}
+	}
+	return result
+}
