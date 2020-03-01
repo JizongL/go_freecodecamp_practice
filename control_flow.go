@@ -13,5 +13,4 @@ func main() {
 	if pop, ok := statePopulations["California"]; ok {
 		fmt.Println(pop)
 	}
-
 }
