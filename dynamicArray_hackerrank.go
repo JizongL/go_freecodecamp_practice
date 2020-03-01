@@ -1,8 +1,6 @@
 package main
 
 import (
-	//	"strings"
-	//	"sort"
 	"fmt"
 )
 
