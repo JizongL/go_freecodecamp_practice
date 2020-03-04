@@ -15,7 +15,7 @@ func main() {
 	// foo from pointer, but it's actually accessing myStruct, so no need to
 	// use * in this cases
 	ms.foo = 42
-	fmt.Println(ms)
+	fmt.Println(ms.foo)
 
 	// difference between array and slice with pointers
 	arr := [3]int{1, 2, 3}
